@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import React from 'react';
+import Header from "./blocks/header"
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends React.Component {
 
+  state = {
+    fetchedData: []
+  }
+
+  componentDidMount = async () => {
+    console.log(`The state nowadays is: `)
+    console.log(this.state)
+    const incomingFetchData = await fetch("https://jsonplaceholder.typicode.com/comments");
+    const parsedData = await incomingFetchData.json()
+    let newStateData = [...this.state.fetchedData]
+    this.setState(function () {
+      newStateData = parsedData
+      return { fetchedData: newStateData }
+    })
+    console.log('The state after fetch is: ')
+    console.log(this.state)
+  }
+
+  render() {
+    return (
+      <Header
+
+      />
+    )
+  }
+}
 export default App;
