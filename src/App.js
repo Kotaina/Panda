@@ -1,44 +1,50 @@
 import React from 'react';
 import Header from "./blocks/header"
 import Results from "./blocks/results"
+import Pagination from "./blocks/pagination"
 import './App.css';
 
 class App extends React.Component {
 
   state = {
     fetchedData: [],
-    activeItems: [1, 2],
-    currentPage: 0,
+    pageItems: [1, 2],
+    currentPage: 1,
+    itemsOnPage: 10,
     allPagesQty: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   }
 
-  pageHandler(page = this.state.currentPage) {
-    let neededPage = page + 1
-    let copy = [...this.state.fetchedData]
-
-    let activePage = copy.slice(neededPage, neededPage + 9)
-    let newActiveItems = [...this.state.activeItems]
+  pageHandler(evt) {
+    let page = parseInt(evt.target.id) + 1
+    console.log(page)
+    let allData = [...this.state.fetchedData]
+    let finalPage = page * 10 + 1
+    let startPage = page * 10 - 9
+    let newPages = allData.slice(startPage, finalPage)
+    console.log(newPages)
     this.setState(function () {
-      newActiveItems = activePage
-      return { activeItems: newActiveItems }
+      return { pageItems: newPages }
     })
-    console.log(this.state.activeItems)
   }
 
   componentDidMount = async () => {
-    console.log(`The state nowadays is: `)
-    console.log(this.state)
     const incomingFetchData = await fetch("https://jsonplaceholder.typicode.com/comments");
     const parsedData = await incomingFetchData.json()
+
+    // Setting a fetch data
     let newStateData = [...this.state.fetchedData]
     this.setState(function () {
       newStateData = parsedData
       return { fetchedData: newStateData }
     })
-    console.log('The state after fetch is: ')
-    console.log(this.state)
-    this.activeItems.push(this.state.fetchedData)
-    console.log(this.state)
+
+    // Setting page data
+    let newActivePages = [...this.state.pageItems]
+    let firstPageItems = parsedData.slice(0, 10)
+    this.setState(function () {
+      newActivePages = firstPageItems
+      return { pageItems: newActivePages }
+    })
   }
 
 
@@ -47,9 +53,13 @@ class App extends React.Component {
       <>
         <Header />
         <Results
-          await listData={this.state.fetchedData}
+          listData={this.state.pageItems}
           allPagesFck={this.state.allPagesQty}
-          clicky={this.pageHandler}
+        />
+        <Pagination
+          currentPage={this.state.currentPage}
+          allPagesQty={this.state.allPagesQty}
+          clicky={this.pageHandler.bind(this)}
         />
       </>
     )

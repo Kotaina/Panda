@@ -5,16 +5,6 @@ class Results extends React.Component {
         let allDataItems = this.props.listData
         let maxPageQty = 50
         let pages = allDataItems.length / maxPageQty;
-        console.log(pages)
-
-        let pagination = this.props.allPagesFck.map((item, index) => {
-            return (
-                <li
-                    key={index}             >
-                    {item}
-                </li>
-            )
-        })
 
         let listItems = allDataItems.map((item, index) => {
             return (
@@ -24,8 +14,8 @@ class Results extends React.Component {
                     className="result__item"
                 >
                     {item.name}
-                    {item.email}
-                    {item.body}
+                    {/* {item.email}
+                    {item.body} */}
                 </li>
             )
         })
@@ -33,15 +23,12 @@ class Results extends React.Component {
         return (
             <section>
                 <h2 className="results">Results</h2>
-                <button onClick={this.props.clicky}
+                <button
                 >Click</button>
-                {listItems}
-                <div>
-                    <ul>
-                        {pagination}
-                    </ul>
-                </div>
+                <ol>
 
+                    {listItems}
+                </ol>
             </section>
         )
     }
