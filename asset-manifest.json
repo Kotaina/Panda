@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/panda/static/css/main.5e762dbb.chunk.css",
+    "main.js": "/panda/static/js/main.a2f01ab2.chunk.js",
+    "main.js.map": "/panda/static/js/main.a2f01ab2.chunk.js.map",
+    "runtime-main.js": "/panda/static/js/runtime-main.4ea051a5.js",
+    "runtime-main.js.map": "/panda/static/js/runtime-main.4ea051a5.js.map",
+    "static/js/2.5bd4c5c9.chunk.js": "/panda/static/js/2.5bd4c5c9.chunk.js",
+    "static/js/2.5bd4c5c9.chunk.js.map": "/panda/static/js/2.5bd4c5c9.chunk.js.map",
+    "static/js/3.e8dcfff5.chunk.js": "/panda/static/js/3.e8dcfff5.chunk.js",
+    "static/js/3.e8dcfff5.chunk.js.map": "/panda/static/js/3.e8dcfff5.chunk.js.map",
+    "index.html": "/panda/index.html",
+    "static/css/main.5e762dbb.chunk.css.map": "/panda/static/css/main.5e762dbb.chunk.css.map",
+    "static/js/2.5bd4c5c9.chunk.js.LICENSE.txt": "/panda/static/js/2.5bd4c5c9.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4ea051a5.js",
+    "static/js/2.5bd4c5c9.chunk.js",
+    "static/css/main.5e762dbb.chunk.css",
+    "static/js/main.a2f01ab2.chunk.js"
+  ]
+}
