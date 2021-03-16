@@ -1,35 +1,34 @@
 import React from 'react';
+import "../sass/results.scss"
 
 class Results extends React.Component {
     render() {
         let allDataItems = this.props.listData
-        let maxPageQty = 50
-        let pages = allDataItems.length / maxPageQty;
 
         let listItems = allDataItems.map((item, index) => {
             return (
                 <li
-                    id={item.id}
+                    id={`item-${item.id}`}
                     key={index}
-                    className="result__item"
+                    className="tiny__item el"
                 >
-                    {item.name}
-                    {/* {item.email}
-                    {item.body} */}
+                    <span className="el__name">{item.name}</span>
+                    <span className="el__email">{item.email}</span>
                 </li>
             )
         })
 
         return (
-            <section>
-                <h2 className="results">Results</h2>
-                <button
-                >Click</button>
-                <ol>
-
+            <section className="results">
+                <h2 className="results__title">Results</h2>
+                <div className="results__buttons btn">
+                    <div className="btn__name">Name:</div>
+                    <div className="btn__email">Email:</div>
+                </div>
+                <ul className="results__list item">
                     {listItems}
-                </ol>
-            </section>
+                </ul>
+            </section >
         )
     }
 }

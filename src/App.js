@@ -11,7 +11,7 @@ class App extends React.Component {
     pageItems: [1, 2],
     currentPage: 1,
     itemsOnPage: 50,
-    allPagesQty: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    allPagesQty: []
   }
 
   pageHandler(evt) {

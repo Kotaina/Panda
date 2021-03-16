@@ -1,0 +1,58 @@
+.results__list {
+    border: 1px solid black;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: calc(100vh - 250px);
+    overflow-y: scroll;
+}
+
+.tiny__item {
+    display: block;
+    border: 1px solid blue;
+    cursor: pointer;
+    padding: 2px 7px;
+    height: auto;
+    min-height: 34px;
+
+    &:hover,
+    &:focus {
+        background-color: darkcyan;
+    }
+
+    &:active {
+        background-color: darkorchid;
+    }
+}
+
+.el__name {
+    display: inline-block;
+    width: 540px;
+    margin-right: 10px;
+}
+
+.item__main {
+    display: block;
+    cursor: pointer;
+    background-color: burlywood;
+}
+
+.btn__name,
+.btn__email {
+    border-right: 1px solid black;
+    display: block;
+    width: 540px;
+    height: 30px;
+    text-align: center;
+    background-color: chocolate;
+    cursor: pointer;
+}
+
+.btn__email {
+    width: 100%;
+}
+
+
+.results__buttons {
+    display: flex;
+}
