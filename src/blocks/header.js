@@ -5,7 +5,7 @@ class Header extends React.Component {
     render() {
         return (
 
-            <h1>Title btch</h1>
+            <h1 className="header__title">users list</h1>
         )
     }
 }

@@ -3,8 +3,9 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    height: calc(100vh - 250px);
+    height: calc(100vh - 200px);
     overflow-y: scroll;
+    margin-bottom: 20px;
 }
 
 .tiny__item {
@@ -25,6 +26,8 @@
     }
 }
 
+
+
 .el__name {
     display: inline-block;
     width: 540px;
@@ -41,17 +44,25 @@
 .btn__email {
     border-right: 1px solid black;
     display: block;
-    width: 540px;
+    // width: 800px;
+    width: 50%;
     height: 30px;
     text-align: center;
     background-color: chocolate;
     cursor: pointer;
 }
 
-.btn__email {
-    width: 100%;
+.btn__name {
+    &:hover,
+    &:focus {
+        background-color: indianred;
+    }
 }
 
+.el__name,
+.el__email {
+    width: 50%;
+}
 
 .results__buttons {
     display: flex;

@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from "./blocks/header"
+import Search from './blocks/search';
 import Results from "./blocks/results"
 import Pagination from "./blocks/pagination"
 import './App.css';
@@ -8,10 +9,12 @@ class App extends React.Component {
 
   state = {
     fetchedData: [],
-    pageItems: [1, 2],
+    pageItems: [],
     currentPage: 1,
     itemsOnPage: 50,
-    allPagesQty: []
+    allPagesQty: [],
+    reservedCopy: [],
+    isFilterStraight: true
   }
 
   pageHandler(evt) {
@@ -69,6 +72,74 @@ class App extends React.Component {
     this.setState((function () {
       return { allPagesQty: pagesArray }
     }))
+
+
+    let copied = [...this.state.pageItems]
+    let copy = [...copied]
+
+    this.setState(function () {
+      return { reservedCopy: copy }
+    })
+  }
+
+  sortHandler() {
+    let arrayTempCopy = [...this.state.pageItems]
+
+    if (this.state.isFilterStraight) {
+
+      let newFilteredArray = arrayTempCopy.sort(function (a, b) {
+        if (a.name < b.name) { return -1; }
+        if (a.name > b.name) { return 1; }
+        return 0;
+      })
+      //Sort items
+      this.setState(function () {
+        return { pageItems: newFilteredArray }
+      })
+      // Change flag
+      this.setState(function () {
+        return { isFilterStraight: false }
+      })
+
+    } else {
+
+      let newFilteredArray = arrayTempCopy.sort(function (a, b) {
+        if (a.name < b.name) { return 1; }
+        if (a.name > b.name) { return -1; }
+        return 0;
+      })
+      //Sort items
+      this.setState(function () {
+        return { pageItems: newFilteredArray }
+      })
+      // Change flag
+      this.setState(function () {
+        return { isFilterStraight: true }
+      })
+    }
+  }
+
+  inputHandler(evt) {
+    let value = evt.target.value.toLowerCase()
+
+    let filteredName = this.state.pageItems.filter(user => {
+      return user.name.toLowerCase().includes(value)
+    })
+
+    this.setState(function () {
+      return { pageItems: [] }
+    })
+    this.setState(function () {
+      return { pageItems: filteredName }
+    })
+  }
+
+  btnCancelClickHandler() {
+    console.log("HEYY")
+    let copied = [...this.state.reservedCopy]
+    this.setState(function () {
+      return { pageItems: copied }
+    })
   }
 
 
@@ -76,9 +147,14 @@ class App extends React.Component {
     return (
       <>
         <Header />
+        <Search
+          inputHandler={this.inputHandler.bind(this)}
+          onBtnCancelClick={() => { this.btnCancelClickHandler() }}
+        />
         <Results
           listData={this.state.pageItems}
           allPagesFck={this.state.allPagesQty}
+          sortByName={() => { this.sortHandler() }}
         />
         <Pagination
           currentPage={this.state.currentPage}

@@ -20,9 +20,10 @@ class Results extends React.Component {
 
         return (
             <section className="results">
-                <h2 className="results__title">Results</h2>
                 <div className="results__buttons btn">
-                    <div className="btn__name">Name:</div>
+                    <div className="btn__name"
+                        onClick={this.props.sortByName}
+                    >Name:</div>
                     <div className="btn__email">Email:</div>
                 </div>
                 <ul className="results__list item">
