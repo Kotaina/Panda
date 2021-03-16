@@ -10,21 +10,44 @@ class App extends React.Component {
     fetchedData: [],
     pageItems: [1, 2],
     currentPage: 1,
-    itemsOnPage: 10,
+    itemsOnPage: 50,
     allPagesQty: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  }
+
+  pageQtySetter() {
+    let pageQty = this.state.fetchedData / this.state.itemsOnPage
+    console.log(pageQty)
   }
 
   pageHandler(evt) {
     let page = parseInt(evt.target.id) + 1
     console.log(page)
     let allData = [...this.state.fetchedData]
-    let finalPage = page * 10 + 1
-    let startPage = page * 10 - 9
+
+    let startPage
+    let finalPage
+    if (page === 1) {
+
+      startPage = page - 1
+      finalPage = page * this.state.itemsOnPage
+    } else {
+      startPage = page * this.state.itemsOnPage - this.state.itemsOnPage
+      finalPage = page * this.state.itemsOnPage
+    }
+    console.log(startPage, finalPage)
+
+
     let newPages = allData.slice(startPage, finalPage)
     console.log(newPages)
     this.setState(function () {
       return { pageItems: newPages }
     })
+
+    this.setState(function () {
+      return { currentPage: page }
+    })
+
+    console.log(this.state)
   }
 
   componentDidMount = async () => {
@@ -40,11 +63,24 @@ class App extends React.Component {
 
     // Setting page data
     let newActivePages = [...this.state.pageItems]
-    let firstPageItems = parsedData.slice(0, 10)
+    let firstPageItems = parsedData.slice(0, this.state.itemsOnPage)
     this.setState(function () {
       newActivePages = firstPageItems
       return { pageItems: newActivePages }
     })
+
+    // Setting page quantity
+    let pageQty = this.state.fetchedData.length / this.state.itemsOnPage
+    console.log(pageQty)
+    let array = []
+    // oldSchool /m/
+    for (let i = 0; i < pageQty; i++) {
+      array.push(i + 1)
+    }
+    console.log(array)
+    this.setState((function () {
+      return { allPagesQty: array }
+    }))
   }
 
 
