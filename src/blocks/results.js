@@ -15,6 +15,9 @@ const Results = props => {
         const hoverStyle = {
             ":hover": {
                 backgroundColor: `rgb(${r},${g},${b})`
+            },
+            ":active": {
+                backgroundColor: `rgb(${r},${g},${b})`
             }
         }
 
