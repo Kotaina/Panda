@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/Panda/static/css/main.c7895268.chunk.css",
-    "main.js": "/Panda/static/js/main.209ff362.chunk.js",
-    "main.js.map": "/Panda/static/js/main.209ff362.chunk.js.map",
+    "main.js": "/Panda/static/js/main.776c1f89.chunk.js",
+    "main.js.map": "/Panda/static/js/main.776c1f89.chunk.js.map",
     "runtime-main.js": "/Panda/static/js/runtime-main.66dc925c.js",
     "runtime-main.js.map": "/Panda/static/js/runtime-main.66dc925c.js.map",
-    "static/js/2.e8ef77db.chunk.js": "/Panda/static/js/2.e8ef77db.chunk.js",
-    "static/js/2.e8ef77db.chunk.js.map": "/Panda/static/js/2.e8ef77db.chunk.js.map",
+    "static/js/2.8f14b25a.chunk.js": "/Panda/static/js/2.8f14b25a.chunk.js",
+    "static/js/2.8f14b25a.chunk.js.map": "/Panda/static/js/2.8f14b25a.chunk.js.map",
     "static/js/3.09173dfc.chunk.js": "/Panda/static/js/3.09173dfc.chunk.js",
     "static/js/3.09173dfc.chunk.js.map": "/Panda/static/js/3.09173dfc.chunk.js.map",
     "index.html": "/Panda/index.html",
     "static/css/main.c7895268.chunk.css.map": "/Panda/static/css/main.c7895268.chunk.css.map",
-    "static/js/2.e8ef77db.chunk.js.LICENSE.txt": "/Panda/static/js/2.e8ef77db.chunk.js.LICENSE.txt"
+    "static/js/2.8f14b25a.chunk.js.LICENSE.txt": "/Panda/static/js/2.8f14b25a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.66dc925c.js",
-    "static/js/2.e8ef77db.chunk.js",
+    "static/js/2.8f14b25a.chunk.js",
     "static/css/main.c7895268.chunk.css",
-    "static/js/main.209ff362.chunk.js"
+    "static/js/main.776c1f89.chunk.js"
   ]
 }
